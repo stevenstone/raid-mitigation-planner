@@ -1,0 +1,79 @@
+{
+    "attacks": [
+        {
+            "name": "Hemitheos's Dark",
+            "castTime": 5,
+            "time": "0:13"
+        },
+        {
+            "name": "Chelic Synergy",
+            "castTime": 7,
+            "time": "0:27"
+        },
+        {
+            "name": "Poly 1",
+            "castTime": 0,
+            "time": "0:56"
+        },
+        {
+            "name": "Pathogenic Cells",
+            "castTime": 0,
+            "time": "1:11"
+        },
+        {
+            "name": "Pathogenic Cells",
+            "castTime": 0,
+            "time": "1:13"
+        },
+        {
+            "name": "Pathogenic Cells",
+            "castTime": 0,
+            "time": "1:15"
+        },
+        {
+            "name": "Pathogenic Cells",
+            "castTime": 0,
+            "time": "1:17"
+        },
+        {
+            "name": "Pathogenic Cells",
+            "castTime": 0,
+            "time": "1:19"
+        },
+        {
+            "name": "Pathogenic Cells",
+            "castTime": 0,
+            "time": "1:21"
+        },
+        {
+            "name": "Pathogenic Cells",
+            "castTime": 0,
+            "time": "1:23"
+        },
+        {
+            "name": "Pathogenic Cells",
+            "castTime": 0,
+            "time": "1:25"
+        },
+        {
+            "name": "Exchange 1",
+            "castTime": 5,
+            "time": "1:50"
+        },
+        {
+            "name": "Synergy",
+            "castTime": 7,
+            "time": "2:07"
+        },
+        {
+            "name": "Hemitheos's Dark",
+            "castTime": 5,
+            "time": "2:20"
+        },
+        {
+            "name": "Transmission",
+            "castTime": 5,
+            "time": "2:31"
+        }
+    ]
+}

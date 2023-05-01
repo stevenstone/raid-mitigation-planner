@@ -1,0 +1,166 @@
+:root {
+  --background-color: #fefefe;
+  --bar-height: 10px;
+}
+
+.timeline {
+  background: var(--background-color);
+  display: inline-block;
+  flex-wrap: nowrap;
+  overflow: scroll;
+  width: 100%;
+}
+
+.timeline-row {
+  display: flex;
+  min-height: 30px;
+  /* white-space: nowrap; */
+}
+
+.timeline-marker {
+  padding-left: 4px;
+  position: absolute;
+}
+
+.timeline-marker::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  height: 100vh;
+  background: black;
+  width: 1px;
+}
+
+.attack {
+  cursor: normal;
+  width: 10px;
+  height: var(--bar-height);
+  background: blue;
+  position: absolute;
+}
+
+.attack::after {
+  background: var(--background-color);
+  bottom: -1.25rem;
+  content: attr(data-name);
+  left: 0;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.cast-time:hover+.attack,
+.attack:hover {
+  z-index: 10;
+}
+
+.cast-time {
+  background: rgba(0, 0, 255, 0.4);
+  height: var(--bar-height);
+  position: absolute;
+}
+
+.mitigation {
+  cursor: normal;
+  width: 10px;
+  height: var(--bar-height);
+  background: green;
+  position: absolute;
+}
+
+.mitigation::after {
+  background: var(--background-color);
+  bottom: -1.25rem;
+  content: attr(data-name);
+  left: 0;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.cooldown {
+  background: rgba(0, 255, 0, 0.4);
+  height: var(--bar-height);
+  position: absolute;
+}
+
+/* .cooldown:nth-child(4n+1) {
+  background: rgba(0, 255, 0, 0.4);
+}
+
+.cooldown:nth-child(4n+3) {
+  background: rgba(0, 128, 255, 0.4);
+} */
+
+/* .mitigation:nth-child(4n+2) {
+  background: rgba(0, 255, 0, 1);
+}
+
+.mitigation:nth-child(4n) {
+  background: rgba(0, 128, 255, 1);
+} */
+
+.cooldown:hover+.mitigation,
+.mitigation:hover {
+  z-index: 10;
+}
+
+.attack:hover::after,
+.mitigation:hover::after {
+  padding-right: 0.5rem;
+}
+
+.timeline-row-label {
+  align-items: flex-end;
+  background: var(--background-color);
+  border-right: 1px solid black;
+  display: inline-flex;
+  height: 100%;
+  left: 0;
+  padding-right: 8px;
+  position: sticky;
+  width: 60px;
+  z-index: 5;
+}
+
+.timeline-row-line {
+  border-bottom: 1px solid lightgray;
+  cursor: crosshair;
+  display: inline-block;
+  height: 100%;
+}
+
+.timeline-row .timeline-row-line {
+  position: relative;
+}
+
+.timeline-input:empty {
+  display: none;
+}
+
+.timeline-input {
+  /* border: none; */
+  display: inline-block;
+}
+
+select,
+input {
+  display: block;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+}
+
+.timeline-button {
+  background: none;
+  border: 1px solid #444;
+  margin: 1rem;
+  padding: 0.5em 1em;
+}
+
+.timeline-button:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid black;
+}
+
+.timeline-button:active {
+  background: black;
+  color: white;
+}

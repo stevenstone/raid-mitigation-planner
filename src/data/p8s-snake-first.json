@@ -1,0 +1,204 @@
+{
+    "attacks": [
+        {
+            "name": "Genesis of Flame",
+            "castTime": 5,
+            "time": "0:12"
+        },
+        {
+            "name": "Emergent Tetra/Octaflare",
+            "castTime": 0,
+            "time": "0:41"
+        },
+        {
+            "name": "Flameviper (1)",
+            "castTime": 6,
+            "time": "0:48"
+        },
+        {
+            "name": "Flameviper (2)",
+            "castTime": 0,
+            "time": "0:51"
+        },
+        {
+            "name": "Snaking Kick",
+            "castTime": 0,
+            "time": "1:11"
+        },
+        {
+            "name": "Blood of the Gorgon",
+            "castTime": 0,
+            "time": "1:44"
+        },
+        {
+            "name": "Blood of the Gorgon",
+            "castTime": 5,
+            "time": "1:52"
+        },
+        {
+            "name": "Ektothermos",
+            "castTime": 5,
+            "time": "2:02"
+        },
+        {
+            "name": "Hemitheos's Flare (Manifold Flames)",
+            "castTime": 0,
+            "time": "2:35"
+        },
+        {
+            "name": "Nest of Flamevipers",
+            "castTime": 0,
+            "time": "2:39"
+        },
+        {
+            "name": "Tetraflare/Flamevipers",
+            "castTime": 5,
+            "time": "2:47"
+        },
+        {
+            "name": "Genesis of Flame",
+            "castTime": 4,
+            "time": "3:04"
+        },
+        {
+            "name": "Footprint",
+            "castTime": 0,
+            "time": "3:23"
+        },
+        {
+            "name": "Rearing Rampage/Uplift",
+            "castTime": 6,
+            "time": "3:29"
+        },
+        {
+            "name": "Rearing Rampage/Uplift",
+            "castTime": 0,
+            "time": "3:31"
+        },
+        {
+            "name": "Rearing Rampage/Uplift",
+            "castTime": 0,
+            "time": "3:33"
+        },
+        {
+            "name": "Rearing Rampage/Uplift",
+            "castTime": 0,
+            "time": "3:35"
+        },
+        {
+            "name": "Stomp Dead",
+            "castTime": 5,
+            "time": "3:43"
+        },
+        {
+            "name": "Stomp Dead",
+            "castTime": 0,
+            "time": "3:45"
+        },
+        {
+            "name": "Stomp Dead",
+            "castTime": 0,
+            "time": "3:47"
+        },
+        {
+            "name": "Stomp Dead",
+            "castTime": 0,
+            "time": "3:49"
+        },
+        {
+            "name": "Fourfold Fires",
+            "castTime": 5,
+            "time": "4:13"
+        },
+        {
+            "name": "Tetra/Octaflare",
+            "castTime": 5,
+            "time": "4:38"
+        },
+        {
+            "name": "Emergent Tetra/Octaflare",
+            "castTime": 0,
+            "time": "4:51"
+        },
+        {
+            "name": "Flameviper (1)",
+            "castTime": 5,
+            "time": "4:58"
+        },
+        {
+            "name": "Flameviper (2)",
+            "castTime": 0,
+            "time": "5:01"
+        },
+        {
+            "name": "Snaking Kick",
+            "castTime": 0,
+            "time": "5:22"
+        },
+        {
+            "name": "Blood/Eye of the Gorgon",
+            "castTime": 0,
+            "time": "5:52"
+        },
+        {
+            "name": "Blood/Eye of the Gorgon",
+            "castTime": 0,
+            "time": "5:58"
+        },
+        {
+            "name": "Breath of the Gorgon",
+            "castTime": 0,
+            "time": "6:08"
+        },
+        {
+            "name": "Flameviper (1)",
+            "castTime": 5,
+            "time": "6:21"
+        },
+        {
+            "name": "Flameviper (2)",
+            "castTime": 0,
+            "time": "6:24"
+        },
+        {
+            "name": "Footprint",
+            "castTime": 0,
+            "time": "6:43"
+        },
+        {
+            "name": "Quadrupedal Impact/Crush (1)",
+            "castTime": 5,
+            "time": "6:50"
+        },
+        {
+            "name": "Trailblazer (1)",
+            "castTime": 0,
+            "time": "7:12"
+        },
+        {
+            "name": "Emergent Tetra/Diflare",
+            "castTime": 0,
+            "time": "7:13"
+        },
+        {
+            "name": "Trailblazer (2)",
+            "castTime": 0,
+            "time": "7:20"
+        },
+        {
+            "name": "Quadrupedal Impact/Crush (2)",
+            "castTime": 0,
+            "time": "7:23"
+        },
+        {
+            "name": "Genesis of Flame",
+            "castTime": 5,
+            "time": "7:40"
+        },
+        {
+            "name": "Genesis of Flame (Enrage/Untargetable)",
+            "castTime": 5,
+            "time": "7:52"
+        }
+    ]
+}
