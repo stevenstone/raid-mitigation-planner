@@ -8,7 +8,7 @@ interface MitigationOptions {
     [key: string]: PlayerMitigation[];
 }
 
-interface SavedMitigationsByJob {
+export interface SavedMitigationsByJob {
     [key: string]: SavedMitigation[];
 }
 
@@ -16,6 +16,7 @@ export enum CurrentView {
     AddBossAction,
     AddMitigation,
     AddPlayer,
+    EditMitigation,
     Timeline,
 }
 
@@ -32,6 +33,8 @@ interface TimelineContextState {
 
     currentView: CurrentView;
     setCurrentView: React.Dispatch<React.SetStateAction<CurrentView>>;
+    selectedMitigation: string;
+    setSelectedMitigation: React.Dispatch<React.SetStateAction<string>>;
 
     setBossData: React.Dispatch<React.SetStateAction<BossAttacks[]>>;
     setPlayerMitigationOptions: React.Dispatch<React.SetStateAction<MitigationOptions>>;
@@ -60,6 +63,8 @@ const initialValues = {
 
     currentView: CurrentView.Timeline,
     setCurrentView: () => { },
+    selectedMitigation: "",
+    setSelectedMitigation: () => { },
 
     setBossData: () => { },
     setPlayerMitigationOptions: () => { },
@@ -87,6 +92,7 @@ export const TimelineProvider: FC<{ children: React.ReactNode }> = ({ children }
     const [rowWidth, setRowWidth] = useState(initialValues.rowWidth);
 
     const [currentView, setCurrentView] = useState(initialValues.currentView);
+    const [selectedMitigation, setSelectedMitigation] = useState(initialValues.selectedMitigation);
 
     useEffect(() => {
         readFromLocalStorage();
@@ -145,6 +151,8 @@ export const TimelineProvider: FC<{ children: React.ReactNode }> = ({ children }
 
                 currentView,
                 setCurrentView,
+                selectedMitigation,
+                setSelectedMitigation,
 
                 setBossData,
                 setPlayerMitigationOptions,

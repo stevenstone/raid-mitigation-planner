@@ -60,11 +60,15 @@
 }
 
 .mitigation {
-  cursor: normal;
+  cursor: pointer;
   width: 10px;
   height: var(--bar-height);
   background: green;
   position: absolute;
+}
+
+.mitigation.selected {
+  background: red;
 }
 
 .mitigation::after {
@@ -123,7 +127,7 @@
 
 .timeline-row-line {
   border-bottom: 1px solid lightgray;
-  cursor: crosshair;
+  /* cursor: crosshair; */
   display: inline-block;
   height: 100%;
 }

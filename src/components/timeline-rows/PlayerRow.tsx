@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { TimelineContext } from "../../TimelineContext";
+import { CurrentView, TimelineContext } from "../../TimelineContext";
 
 interface PlayerRowProps {
     job: string;
@@ -8,7 +8,7 @@ interface PlayerRowProps {
 export const PlayerRow = (props: PlayerRowProps) => {
     const [mitigations, setMitigations] = useState<JSX.Element[]>([]);
     const [isExpanded, setIsExpanded] = useState(true);
-    const { pixelsPerSecond, rowHeight, rowWidth, savedMitigations } = useContext(TimelineContext);
+    const { pixelsPerSecond, rowHeight, rowWidth, savedMitigations, selectedMitigation, setCurrentView, setSelectedMitigation } = useContext(TimelineContext);
     const labelRef = useRef<HTMLDivElement>(null);
 
     const numberOfMitTypes = (savedMitigations[props.job].reduce((result, current) => {
@@ -19,7 +19,6 @@ export const PlayerRow = (props: PlayerRowProps) => {
     useEffect(() => {
         const jobMits = savedMitigations[props.job] || [];
         const renderedMits: JSX.Element[] = [];
-        console.log(jobMits);
         const mitTops: { [key: string]: string } = {};
         jobMits.forEach((mit) => {
             if (!mitTops[mit.name]) {
@@ -27,20 +26,21 @@ export const PlayerRow = (props: PlayerRowProps) => {
                 mitTops[mit.name] = `${length * 30}px`;
             }
         })
-        console.log(mitTops);
 
         jobMits.forEach((mit, index) => {
             const mitLeft = mit.time * pixelsPerSecond;
+            const key = `${props.job}:${index}`
             const mitMarker = (
                 <div
-                    key={`${index}-mit`}
-                    className="mitigation"
+                    key={key}
+                    className={`mitigation ${selectedMitigation === key ? "selected" : ""}`}
                     style={{
                         left: `${mitLeft}px`,
                         top: mitTops[mit.name],
                         width: `${mit.duration * pixelsPerSecond}px`,
                     }}
                     data-name={mit.name}
+                    onClick={() => { setSelectedMitigation(key); setCurrentView(CurrentView.EditMitigation); }}
                 />
             );
             const cooldownMarker = (
@@ -59,7 +59,7 @@ export const PlayerRow = (props: PlayerRowProps) => {
         });
         setMitigations(renderedMits);
 
-    }, [savedMitigations[props.job]]);
+    }, [savedMitigations[props.job], selectedMitigation]);
 
     return (
         <div

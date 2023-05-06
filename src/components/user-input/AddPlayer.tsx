@@ -21,7 +21,6 @@ const AddPlayer: FC = () => {
         const value = selectRef.current?.value;
         if (value) {
             const updatedSavedMitigations = structuredClone(context.savedMitigations);
-            console.log(updatedSavedMitigations);
             updatedSavedMitigations[value] = [];
             context.setSavedMitigations(updatedSavedMitigations);
         }
@@ -29,6 +28,7 @@ const AddPlayer: FC = () => {
 
     return (
         <>
+            <h3>Add Player</h3>
             <select ref={selectRef as React.MutableRefObject<HTMLSelectElement>}>
                 {jobOptions}
             </select>

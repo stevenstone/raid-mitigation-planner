@@ -4,6 +4,7 @@ import { CurrentView, TimelineContext } from "../../TimelineContext";
 import { Button } from "../Button";
 import AddMitigation from "./AddMitigation";
 import AddPlayer from "./AddPlayer";
+import EditMitigation from "./EditMitigation";
 
 export const ActionMenu = () => {
     const context = useContext(TimelineContext);
@@ -11,25 +12,28 @@ export const ActionMenu = () => {
 
     useEffect(() => {
         switch (context.currentView) {
-            case CurrentView.AddBossAction:
-                break;
             case CurrentView.AddMitigation:
                 setForm(<AddMitigation /> as JSX.Element);
                 break;
             case CurrentView.AddPlayer:
                 setForm(<AddPlayer /> as JSX.Element);
+                break;
+            case CurrentView.EditMitigation:
+                setForm(<EditMitigation /> as JSX.Element);
+                break;
             case CurrentView.Timeline:
-                return;
+            case CurrentView.AddBossAction:
+                setForm(<></>);
         }
-    }, [context.currentView])
+    }, [context.currentView]);
 
     return (
         <div>
             <>
                 <div>
-                    <Button onClick={() => context.setCurrentView(CurrentView.AddPlayer)} text="Add Player" />
-                    <Button onClick={() => context.setCurrentView(CurrentView.AddMitigation)} text="Add Mitigation" />
-                    <Button onClick={() => context.setCurrentView(CurrentView.AddBossAction)} text="Add Boss Action" />
+                    <Button onClick={() => { context.setCurrentView(CurrentView.AddPlayer); context.setSelectedMitigation(""); }} text="Add Player" />
+                    <Button onClick={() => { context.setCurrentView(CurrentView.AddMitigation); context.setSelectedMitigation(""); }} text="Add Mitigation" />
+                    {/* <Button onClick={() => {context.setCurrentView(CurrentView.AddBossAction); context.setSelectedMitigation("");}} text="Add Boss Action" /> */}
                 </div>
                 {form}
             </>

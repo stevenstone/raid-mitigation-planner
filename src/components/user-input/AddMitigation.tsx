@@ -40,13 +40,14 @@ const AddMitigation: FC = () => {
 
     return (
         <>
+            <h3>Add Mitigation</h3>
             <label htmlFor="mitigation">Mitigation</label>
             <select id="Mitigation" ref={selectRef as React.MutableRefObject<HTMLSelectElement>}>
                 {mitOptions}
             </select>
             <label htmlFor="time">Time of Use</label>
             <input type="text" id="time" ref={timeRef} />
-            <Button text="Save" onClick={saveMit} />
+            <Button text="Save" onClick={saveMit} disabled={timeRef.current?.value === "" || selectRef.current?.value === ""} />
         </>
     )
 }
