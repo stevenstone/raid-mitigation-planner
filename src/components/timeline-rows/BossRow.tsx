@@ -1,14 +1,17 @@
-import React, { useContext, useRef, useState } from "react"
+import React, { useContext, useMemo, useRef, useState } from "react"
 import { useEffect } from "react"
 import { convertTimeStringToSeconds } from "../../utility/timeCalculations";
-// import bossActions from "../../data/p8s-dog-first.json";
-// import { attackTypes } from "../../utility/constants";
 import { TimelineContext } from "../../TimelineContext";
+import { bossFiles } from "../../data/bossFiles";
 
 export const BossRow = () => {
     const [bossAttacks, setBossAttacks] = useState<JSX.Element[]>([]);
-    const { bossData, pixelsPerSecond, rowWidth } = useContext(TimelineContext);
+    const { selectedBossFile, pixelsPerSecond, rowWidth } = useContext(TimelineContext);
     const labelRef = useRef<HTMLDivElement>(null);
+
+    const bossData = useMemo(() => {
+        return bossFiles[selectedBossFile];
+    }, [selectedBossFile]);
 
     useEffect(() => {
         const newBossAttacks: JSX.Element[] = [];

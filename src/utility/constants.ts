@@ -10,6 +10,10 @@
 
 // export type MitigationType = "magical" | "physical" | "all" | "none";
 
+export interface BossFile {
+    [displayName: string]: BossAttacks[],
+}
+
 export interface PlayerMitigation {
     name: string;
     duration: number;

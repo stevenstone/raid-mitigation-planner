@@ -21,7 +21,8 @@ export enum CurrentView {
 }
 
 interface TimelineContextState {
-    bossData: BossAttacks[];
+    // bossData: BossAttacks[];
+    selectedBossFile: string;
     playerMitigationOptions: MitigationOptions;
     savedMitigations: SavedMitigationsByJob;
 
@@ -36,7 +37,8 @@ interface TimelineContextState {
     selectedMitigation: string;
     setSelectedMitigation: React.Dispatch<React.SetStateAction<string>>;
 
-    setBossData: React.Dispatch<React.SetStateAction<BossAttacks[]>>;
+    // setBossData: React.Dispatch<React.SetStateAction<BossAttacks[]>>;
+    setSelectedBossFile: React.Dispatch<React.SetStateAction<string>>;
     setPlayerMitigationOptions: React.Dispatch<React.SetStateAction<MitigationOptions>>;
     setSavedMitigations: React.Dispatch<React.SetStateAction<SavedMitigationsByJob>>;
 
@@ -51,7 +53,8 @@ const totalSeconds = convertTimeStringToSeconds(initialTime);
 const pixelsPerSecond = 10;
 
 const initialValues = {
-    bossData: [],
+    // bossData: p8sData.attacks as BossAttacks[],
+    selectedBossFile: "P8S (Dog First)",
     playerMitigationOptions: {},
     savedMitigations: {},
 
@@ -66,7 +69,8 @@ const initialValues = {
     selectedMitigation: "",
     setSelectedMitigation: () => { },
 
-    setBossData: () => { },
+    // setBossData: () => { },
+    setSelectedBossFile: () => { },
     setPlayerMitigationOptions: () => { },
     setSavedMitigations: () => { },
 
@@ -82,7 +86,8 @@ export const TimelineProvider: FC<{ children: React.ReactNode }> = ({ children }
     const localStorageKey = useRef("raid-timeline-storage").current;
     const [storedMitigationString, setStoredMitigationString] = useState("[]");
 
-    const [bossData, setBossData] = useState<BossAttacks[]>(initialValues.bossData);
+    // const [bossData, setBossData] = useState<BossAttacks[]>(initialValues.bossData);
+    const [selectedBossFile, setSelectedBossFile] = useState(initialValues.selectedBossFile);
     const [playerMitigationOptions, setPlayerMitigationOptions] = useState<MitigationOptions>(initialValues.playerMitigationOptions);
     const [savedMitigations, setSavedMitigations] = useState<SavedMitigationsByJob>(initialValues.savedMitigations);
     const [time, setTime] = useState(initialValues.time);
@@ -96,11 +101,7 @@ export const TimelineProvider: FC<{ children: React.ReactNode }> = ({ children }
 
     useEffect(() => {
         readFromLocalStorage();
-    }, []);
-
-    useEffect(() => {
-        setBossData(p8sData.attacks as BossAttacks[]);
-    }, []);
+    }, [selectedBossFile]);
 
     useEffect(() => {
         const selectedJobs = Object.keys(savedMitigations);
@@ -128,18 +129,32 @@ export const TimelineProvider: FC<{ children: React.ReactNode }> = ({ children }
 
     const saveToLocalStorage = () => {
         const newString = JSON.stringify(savedMitigations);
-        window.localStorage.setItem(localStorageKey, newString);
+        const updatedStorage = JSON.parse(storedMitigationString || "[]") || {};
+        console.log(updatedStorage);
+        console.log(selectedBossFile);
+        updatedStorage[selectedBossFile] = newString;
+        console.log(updatedStorage);
+        const updatedString = JSON.stringify(updatedStorage);
+        window.localStorage.setItem(localStorageKey, updatedString);
+        console.log(updatedString);
     }
 
     const readFromLocalStorage = () => {
         const newString = window.localStorage.getItem(localStorageKey) || "[]";
-        setStoredMitigationString(newString);
+        console.log(newString);
+        // parse the string to get the right fight
+        const allData = JSON.parse(newString);
+        const thisFight = allData[selectedBossFile]?.attacks || [];
+        // re string it to save in state
+        const storedString = JSON.stringify(thisFight);
+        setStoredMitigationString(storedString);
     }
 
     return (
         <TimelineContext.Provider
             value={{
-                bossData,
+                // bossData,
+                selectedBossFile,
                 playerMitigationOptions,
                 savedMitigations,
 
@@ -154,7 +169,8 @@ export const TimelineProvider: FC<{ children: React.ReactNode }> = ({ children }
                 selectedMitigation,
                 setSelectedMitigation,
 
-                setBossData,
+                // setBossData,
+                setSelectedBossFile,
                 setPlayerMitigationOptions,
                 setSavedMitigations,
 
