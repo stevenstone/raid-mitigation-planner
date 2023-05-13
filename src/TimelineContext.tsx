@@ -26,6 +26,7 @@ interface TimelineContextState {
     playerMitigationOptions: MitigationOptions;
     savedMitigations: SavedMitigationsByJob;
     saveToLocalStorage: () => void;
+    lastSavedToStorage: string;
 
     totalSeconds: number;
     pixelsPerSecond: number;
@@ -55,6 +56,7 @@ const initialValues = {
     playerMitigationOptions: {},
     savedMitigations: {},
     saveToLocalStorage: () => { },
+    lastSavedToStorage: "",
 
     totalSeconds,
     pixelsPerSecond: 10,
@@ -79,13 +81,12 @@ export const TimelineContext = createContext<TimelineContextState>(initialValues
 
 export const TimelineProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
     const localStorageKey = useRef("raid-timeline-storage").current;
-    // const [storedMitigationString, setStoredMitigationString] = useState("{}");
 
-    // const [bossData, setBossData] = useState<BossAttacks[]>(initialValues.bossData);
     const [selectedBossFile, setSelectedBossFile] = useState(initialValues.selectedBossFile);
     const [playerMitigationOptions, setPlayerMitigationOptions] = useState<MitigationOptions>(initialValues.playerMitigationOptions);
     const [savedMitigations, setSavedMitigations] = useState<SavedMitigationsByJob>(initialValues.savedMitigations);
-    // const [time, setTime] = useState(initialValues.time);
+    const [lastSavedToStorage, setLastSavedToStorage] = useState<string>("");
+
     const [totalSeconds, setTotalSeconds] = useState(initialValues.totalSeconds);
     const [pixelsPerSecond, setPixelsPerSecond] = useState(initialValues.pixelsPerSecond);
     const [rowHeight, setRowHeight] = useState(initialValues.rowHeight);
@@ -115,6 +116,7 @@ export const TimelineProvider: FC<{ children: React.ReactNode }> = ({ children }
         updatedStorage[selectedBossFile] = savedMitigations;
         const updatedString = JSON.stringify(updatedStorage);
         window.localStorage.setItem(localStorageKey, updatedString);
+        setLastSavedToStorage(updatedString);
     }
 
     const readFromLocalStorage = () => {
@@ -123,6 +125,7 @@ export const TimelineProvider: FC<{ children: React.ReactNode }> = ({ children }
         const allData = JSON.parse(newString);
         const thisFightMits: SavedMitigationsByJob = allData[selectedBossFile] || {};
         setSavedMitigations(thisFightMits);
+        setLastSavedToStorage(JSON.stringify(thisFightMits));
     }
 
     return (
@@ -132,6 +135,7 @@ export const TimelineProvider: FC<{ children: React.ReactNode }> = ({ children }
                 playerMitigationOptions,
                 savedMitigations,
                 saveToLocalStorage,
+                lastSavedToStorage,
 
                 totalSeconds,
                 pixelsPerSecond,

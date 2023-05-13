@@ -18,6 +18,7 @@ export const BossDropdown = () => {
         <select
             value={timelineContext.selectedBossFile}
             onChange={(e) => updateSelectedBoss(e.target.value)}
+            className="boss-dropdown"
         >
             {options}
         </select>

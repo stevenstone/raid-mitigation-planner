@@ -3,6 +3,11 @@
   --bar-height: 10px;
 }
 
+.boss-dropdown {
+  display: inline-block;
+  margin-right: 1.5rem;
+}
+
 .timeline {
   background: var(--background-color);
   display: inline-block;
