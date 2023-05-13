@@ -7,7 +7,7 @@ export const BossDropdown = () => {
     const timelineContext = useContext(TimelineContext);
 
     const options = useMemo(() => {
-        return Object.keys(bossFiles).map((displayName) => <option key={displayName} value={displayName}>{displayName}</option>);
+        return Object.entries(bossFiles).map(([key, value]) => <option key={key} value={key}>{value.displayName}</option>);
     }, []);
 
     const updateSelectedBoss = (value: string) => {

@@ -1,6 +1,5 @@
 import React, { createContext, useState, FC, useEffect, useRef } from "react";
-import { BossAttacks, PlayerMitigation, SavedMitigation } from "./utility/constants";
-import p8sData from "./data/p8s-dog-first.json";
+import { FightData, PlayerMitigation, SavedMitigation } from "./utility/constants";
 import { players as playerMitigationData } from "./data/players";
 import { convertTimeStringToSeconds } from "./utility/timeCalculations";
 
@@ -25,8 +24,9 @@ interface TimelineContextState {
     selectedBossFile: string;
     playerMitigationOptions: MitigationOptions;
     savedMitigations: SavedMitigationsByJob;
+    saveToLocalStorage: () => void;
 
-    time: string;
+    // time: string;
     totalSeconds: number;
     pixelsPerSecond: number;
     rowHeight: string;
@@ -42,7 +42,7 @@ interface TimelineContextState {
     setPlayerMitigationOptions: React.Dispatch<React.SetStateAction<MitigationOptions>>;
     setSavedMitigations: React.Dispatch<React.SetStateAction<SavedMitigationsByJob>>;
 
-    setTime: React.Dispatch<React.SetStateAction<string>>;
+    // setTime: React.Dispatch<React.SetStateAction<string>>;
     setTotalSeconds: React.Dispatch<React.SetStateAction<number>>;
     setPixelsPerSecond: React.Dispatch<React.SetStateAction<number>>;
     setRowWidth: React.Dispatch<React.SetStateAction<string>>;
@@ -54,11 +54,12 @@ const pixelsPerSecond = 10;
 
 const initialValues = {
     // bossData: p8sData.attacks as BossAttacks[],
-    selectedBossFile: "P8S (Dog First)",
+    selectedBossFile: "p8sdog",
     playerMitigationOptions: {},
     savedMitigations: {},
+    saveToLocalStorage: () => { },
 
-    time: initialTime,
+    // time: initialTime,
     totalSeconds,
     pixelsPerSecond: 10,
     rowHeight: "30px",
@@ -74,7 +75,7 @@ const initialValues = {
     setPlayerMitigationOptions: () => { },
     setSavedMitigations: () => { },
 
-    setTime: () => { },
+    // setTime: () => { },
     setTotalSeconds: () => { },
     setPixelsPerSecond: () => { },
     setRowWidth: () => { },
@@ -84,13 +85,13 @@ export const TimelineContext = createContext<TimelineContextState>(initialValues
 
 export const TimelineProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
     const localStorageKey = useRef("raid-timeline-storage").current;
-    const [storedMitigationString, setStoredMitigationString] = useState("[]");
+    const [storedMitigationString, setStoredMitigationString] = useState("{}");
 
     // const [bossData, setBossData] = useState<BossAttacks[]>(initialValues.bossData);
     const [selectedBossFile, setSelectedBossFile] = useState(initialValues.selectedBossFile);
     const [playerMitigationOptions, setPlayerMitigationOptions] = useState<MitigationOptions>(initialValues.playerMitigationOptions);
     const [savedMitigations, setSavedMitigations] = useState<SavedMitigationsByJob>(initialValues.savedMitigations);
-    const [time, setTime] = useState(initialValues.time);
+    // const [time, setTime] = useState(initialValues.time);
     const [totalSeconds, setTotalSeconds] = useState(initialValues.totalSeconds);
     const [pixelsPerSecond, setPixelsPerSecond] = useState(initialValues.pixelsPerSecond);
     const [rowHeight, setRowHeight] = useState(initialValues.rowHeight);
@@ -115,39 +116,39 @@ export const TimelineProvider: FC<{ children: React.ReactNode }> = ({ children }
     }, [savedMitigations]);
 
     useEffect(() => {
-        saveToLocalStorage();
-    }, [savedMitigations]);
-
-    useEffect(() => {
-        const parsedMits = JSON.parse(storedMitigationString) as SavedMitigation[];
+        const parsedMits: string = JSON.parse(storedMitigationString);
+        console.log(storedMitigationString);
+        // console.log(parsedMits);
         const newMits = {};
+        console.log(parsedMits);
         Object.entries(parsedMits).forEach(([job, mits]) => {
             newMits[job] = (mits || []);
+            console.log(job);
         });
+        console.log(newMits);
         setSavedMitigations(newMits);
     }, [storedMitigationString]);
 
     const saveToLocalStorage = () => {
-        const newString = JSON.stringify(savedMitigations);
-        const updatedStorage = JSON.parse(storedMitigationString || "[]") || {};
-        console.log(updatedStorage);
-        console.log(selectedBossFile);
-        updatedStorage[selectedBossFile] = newString;
-        console.log(updatedStorage);
+        // const newString = JSON.stringify(savedMitigations);
+        const updatedStorage = JSON.parse(storedMitigationString || "{}") || {};
+        updatedStorage[selectedBossFile] = savedMitigations;
         const updatedString = JSON.stringify(updatedStorage);
         window.localStorage.setItem(localStorageKey, updatedString);
-        console.log(updatedString);
     }
 
     const readFromLocalStorage = () => {
-        const newString = window.localStorage.getItem(localStorageKey) || "[]";
-        console.log(newString);
+        const newString = window.localStorage.getItem(localStorageKey) || "{}";
         // parse the string to get the right fight
         const allData = JSON.parse(newString);
-        const thisFight = allData[selectedBossFile]?.attacks || [];
+        const thisFight: FightData = allData[selectedBossFile] || {};
         // re string it to save in state
         const storedString = JSON.stringify(thisFight);
         setStoredMitigationString(storedString);
+        if (thisFight?.time) {
+            setTotalSeconds(parseInt(thisFight.time));
+            setRowWidth(`${convertTimeStringToSeconds(thisFight.time) * pixelsPerSecond}px`);
+        }
     }
 
     return (
@@ -157,8 +158,9 @@ export const TimelineProvider: FC<{ children: React.ReactNode }> = ({ children }
                 selectedBossFile,
                 playerMitigationOptions,
                 savedMitigations,
+                saveToLocalStorage,
 
-                time,
+                // time,
                 totalSeconds,
                 pixelsPerSecond,
                 rowHeight,
@@ -174,7 +176,7 @@ export const TimelineProvider: FC<{ children: React.ReactNode }> = ({ children }
                 setPlayerMitigationOptions,
                 setSavedMitigations,
 
-                setTime,
+                // setTime,
                 setTotalSeconds,
                 setPixelsPerSecond,
                 setRowWidth,

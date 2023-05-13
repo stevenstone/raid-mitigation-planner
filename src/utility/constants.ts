@@ -11,7 +11,10 @@
 // export type MitigationType = "magical" | "physical" | "all" | "none";
 
 export interface BossFile {
-    [displayName: string]: BossAttacks[],
+    [key: string]: {
+        file: FightData,
+        displayName: string;
+    }
 }
 
 export interface PlayerMitigation {
@@ -22,6 +25,11 @@ export interface PlayerMitigation {
 
 export interface SavedMitigation extends PlayerMitigation {
     time: number;
+}
+
+export interface FightData {
+    attacks: BossAttacks[];
+    time: string;
 }
 
 export interface BossAttacks {

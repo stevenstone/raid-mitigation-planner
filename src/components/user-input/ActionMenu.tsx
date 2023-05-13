@@ -34,6 +34,7 @@ export const ActionMenu = () => {
                     <Button onClick={() => { context.setCurrentView(CurrentView.AddPlayer); context.setSelectedMitigation(""); }} text="Add Player" />
                     <Button onClick={() => { context.setCurrentView(CurrentView.AddMitigation); context.setSelectedMitigation(""); }} text="Add Mitigation" />
                     {/* <Button onClick={() => {context.setCurrentView(CurrentView.AddBossAction); context.setSelectedMitigation("");}} text="Add Boss Action" /> */}
+                    <Button onClick={() => { context.saveToLocalStorage() }} text="Save To Storage" />
                 </div>
                 {form}
             </>

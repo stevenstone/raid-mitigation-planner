@@ -1,10 +1,19 @@
 import { BossFile } from "../utility/constants";
-import { attacks as p6sData } from "./p6s.json";
-import { attacks as p8sDogFirst } from "./p8s-dog-first.json";
-import { attacks as p8sSnakeFirst } from "./p8s-snake-first.json";
+import p6sData from "./p6s.json";
+import p8sDogFirst from "./p8s-dog-first.json";
+import p8sSnakeFirst from "./p8s-snake-first.json";
 
 export const bossFiles: BossFile = {
-    "P6S": p6sData,
-    "P8S (Dog First)": p8sDogFirst,
-    "P8S (Snake First)": p8sSnakeFirst,
+    // "p6s": {
+    //     file: p6sData,
+    //     displayName: "P6S",
+    // },
+    "p8sdog": {
+        file: p8sDogFirst,
+        displayName: "P8S (Dog First)",
+    },
+    "p8ssnake": {
+        file: p8sSnakeFirst,
+        displayName: "P8S (Snake First)",
+    },
 };

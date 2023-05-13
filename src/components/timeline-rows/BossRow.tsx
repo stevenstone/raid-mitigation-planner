@@ -15,7 +15,7 @@ export const BossRow = () => {
 
     useEffect(() => {
         const newBossAttacks: JSX.Element[] = [];
-        bossData.forEach((attack, index) => {
+        bossData?.file.attacks.forEach((attack, index) => {
             const leftPosition = convertTimeStringToSeconds(attack.time) * pixelsPerSecond;
             newBossAttacks.push(
                 <React.Fragment key={index}>
