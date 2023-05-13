@@ -11,7 +11,7 @@ export const PlayerRow = (props: PlayerRowProps) => {
     const { pixelsPerSecond, rowHeight, rowWidth, savedMitigations, selectedMitigation, setCurrentView, setSelectedMitigation } = useContext(TimelineContext);
     const labelRef = useRef<HTMLDivElement>(null);
 
-    const numberOfMitTypes = (savedMitigations[props.job].reduce((result, current) => {
+    const numberOfMitTypes = (savedMitigations[props.job]?.reduce((result, current) => {
         result.add(current.name);
         return result;
     }, new Set<string>())).size;
@@ -63,13 +63,19 @@ export const PlayerRow = (props: PlayerRowProps) => {
 
     return (
         <div
-            className="timeline-row"
+            className="timeline-row player"
             style={{
                 height: `${isExpanded ? `${numberOfMitTypes * parseInt(rowHeight, 10)}px` : rowHeight}`,
                 width: `${parseInt(rowWidth, 10) + (Math.ceil(labelRef?.current?.getBoundingClientRect().width || 0))}px`
             }}
         >
-            <div className="timeline-row-label" ref={labelRef}>{props.job}</div>
+            <div
+                className="timeline-row-label"
+                ref={labelRef}
+                onClick={() => { setSelectedMitigation(props.job); setCurrentView(CurrentView.DeletePlayer); }}
+            >
+                {props.job}
+            </div>
             <div className="timeline-row-line" data-id={props.job} style={{ width: rowWidth }}>{mitigations}</div>
         </div>
     );

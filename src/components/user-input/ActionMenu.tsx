@@ -4,6 +4,7 @@ import { CurrentView, TimelineContext } from "../../TimelineContext";
 import { Button } from "../Button";
 import AddMitigation from "./AddMitigation";
 import AddPlayer from "./AddPlayer";
+import DeletePlayer from "./DeletePlayer";
 import EditMitigation from "./EditMitigation";
 
 export const ActionMenu = () => {
@@ -20,6 +21,9 @@ export const ActionMenu = () => {
                 break;
             case CurrentView.EditMitigation:
                 setForm(<EditMitigation /> as JSX.Element);
+                break;
+            case CurrentView.DeletePlayer:
+                setForm(<DeletePlayer /> as JSX.Element);
                 break;
             case CurrentView.Timeline:
             case CurrentView.AddBossAction:

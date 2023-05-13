@@ -112,10 +112,13 @@
   padding-right: 0.5rem;
 }
 
+.timeline-row.player .timeline-row-label {
+  cursor: pointer;
+}
+
 .timeline-row-label {
   align-items: flex-end;
   background: var(--background-color);
-  border-right: 1px solid black;
   display: inline-flex;
   height: 100%;
   left: 0;

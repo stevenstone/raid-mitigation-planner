@@ -76,9 +76,9 @@ const EditMitigation: FC = () => {
             </select>
             <label htmlFor="time">Time of Use</label>
             <input type="text" id="time" ref={timeRef} defaultValue={convertSecondsToTimeString(selectedMitigationValues.time)} />
-            <Button text="Save" onClick={updateMit} />
-            <Button text="Delete" onClick={deleteMit} />
             <Button text="Cancel" onClick={() => { context.setCurrentView(CurrentView.Timeline); context.setSelectedMitigation(""); }} />
+            <Button text="Delete" onClick={deleteMit} />
+            <Button text="Save" onClick={updateMit} />
         </>
     )
 }
