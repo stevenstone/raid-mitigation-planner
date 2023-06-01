@@ -439,5 +439,41 @@ export const players: { [key: string]: PlayerMitigation[] } = {
             "duration": 10,
             "cooldown": 120,
         }
-    ]
+    ],
+    "smn": [
+        {
+            "name": "Addle",
+            "duration": 10,
+            "cooldown": 90,
+        },
+        {
+            "name": "Radiant Aegis",
+            "duration": 30,
+            "cooldown": 60,
+        },
+    ],
+    "sam": [
+        {
+            "name": "Third Eye",
+            "duration": 4,
+            "cooldown": 15,
+        },
+        {
+            "name": "Feint",
+            "duration": 10,
+            "cooldown": 90,
+        }
+    ],
+    "mch": [
+        {
+            "name": "Tactician",
+            "duration": 15,
+            "cooldown": 90,
+        },
+        {
+            "name": "Dismantle",
+            "duration": 10,
+            "cooldown": 120,
+        },
+    ],
 };

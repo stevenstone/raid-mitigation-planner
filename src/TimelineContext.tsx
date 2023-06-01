@@ -1,8 +1,7 @@
 import React, { createContext, useState, FC, useEffect, useRef } from "react";
-import { FightData, PlayerMitigation, SavedMitigation } from "./utility/constants";
+import { PlayerMitigation, SavedMitigation } from "./utility/constants";
 import { players as playerMitigationData } from "./data/players";
 import { convertTimeStringToSeconds } from "./utility/timeCalculations";
-import { bossFiles } from "./data/bossFiles";
 
 interface MitigationOptions {
     [key: string]: PlayerMitigation[];
@@ -47,12 +46,12 @@ interface TimelineContextState {
     setRowWidth: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const initialTime = "7:51";
+const initialTime = "9:58";
 const totalSeconds = convertTimeStringToSeconds(initialTime);
 const pixelsPerSecond = 10;
 
 const initialValues = {
-    selectedBossFile: "p8sdog",
+    selectedBossFile: "p9s",
     playerMitigationOptions: {},
     savedMitigations: {},
     saveToLocalStorage: () => { },

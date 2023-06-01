@@ -2,6 +2,7 @@ import { BossFile } from "../utility/constants";
 import p6sData from "./p6s.json";
 import p8sDogFirst from "./p8s-dog-first.json";
 import p8sSnakeFirst from "./p8s-snake-first.json";
+import p9s from "./p9s.json";
 
 export const bossFiles: BossFile = {
     // "p6s": {
@@ -16,4 +17,8 @@ export const bossFiles: BossFile = {
         file: p8sSnakeFirst,
         displayName: "P8S (Snake First)",
     },
+    "p9s": {
+        file: p9s,
+        displayName: "P9S",
+    }
 };
