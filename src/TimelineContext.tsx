@@ -17,6 +17,8 @@ export enum CurrentView {
     AddPlayer,
     DeletePlayer,
     EditMitigation,
+    Export,
+    Import,
     Timeline,
 }
 
@@ -35,6 +37,7 @@ interface TimelineContextState {
     currentView: CurrentView;
     setCurrentView: React.Dispatch<React.SetStateAction<CurrentView>>;
     selectedMitigation: string;
+    importToLocalStorage: (input: string) => void;
     setSelectedMitigation: React.Dispatch<React.SetStateAction<string>>;
 
     setSelectedBossFile: React.Dispatch<React.SetStateAction<string>>;
@@ -65,6 +68,7 @@ const initialValues = {
     currentView: CurrentView.Timeline,
     setCurrentView: () => { },
     selectedMitigation: "",
+    importToLocalStorage: (input: string) => { },
     setSelectedMitigation: () => { },
 
     setSelectedBossFile: () => { },
@@ -127,6 +131,11 @@ export const TimelineProvider: FC<{ children: React.ReactNode }> = ({ children }
         setLastSavedToStorage(JSON.stringify(thisFightMits));
     }
 
+    const importToLocalStorage = (input: string) => {
+        window.localStorage.setItem(localStorageKey, input);
+        readFromLocalStorage();
+    }
+
     return (
         <TimelineContext.Provider
             value={{
@@ -148,6 +157,7 @@ export const TimelineProvider: FC<{ children: React.ReactNode }> = ({ children }
 
                 setSelectedBossFile,
                 setPlayerMitigationOptions,
+                importToLocalStorage,
                 setSavedMitigations,
 
                 setTotalSeconds,
