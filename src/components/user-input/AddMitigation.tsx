@@ -30,7 +30,8 @@ const AddMitigation: FC = () => {
             const updatedSavedMitigations = structuredClone(context.savedMitigations);
             const [job, addedMit] = value.split(":");
             const populatedMit = {
-                ...context.playerMitigationOptions[job].find((mit) => mit.name === addedMit),
+                // the ! asserts that the object is not undefined for the compiler/linter
+                ...context.playerMitigationOptions[job].find((mit) => mit.name === addedMit)!,
                 time: convertTimeStringToSeconds(time),
             };
             updatedSavedMitigations[job].push(populatedMit);

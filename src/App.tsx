@@ -6,6 +6,7 @@ import { BossDropdown } from "./components/user-input/BossDropdown";
 import { TimelineProvider } from "./TimelineContext";
 
 export const App = () => {
+    console.log("rendering app");
     return (
         <TimelineProvider>
             <BossDropdown />
