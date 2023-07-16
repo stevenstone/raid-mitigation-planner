@@ -2,8 +2,8 @@ import React, { createContext, useState, FC, useEffect, useRef } from "react";
 import { PlayerMitigation, SavedMitigation } from "./utility/constants";
 import { players as playerMitigationData } from "./data/players";
 import { convertTimeStringToSeconds } from "./utility/timeCalculations";
-import { db } from "./firebase";
-import { onValue, ref } from "firebase/database";
+// import { db } from "./firebase";
+// import { onValue, ref } from "firebase/database";
 import { bossFiles } from "./data/bossFiles";
 
 interface MitigationOptions {
