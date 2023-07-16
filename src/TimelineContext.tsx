@@ -2,6 +2,7 @@ import React, { createContext, useState, FC, useEffect, useRef } from "react";
 import { PlayerMitigation, SavedMitigation } from "./utility/constants";
 import { players as playerMitigationData } from "./data/players";
 import { convertTimeStringToSeconds } from "./utility/timeCalculations";
+import { bossFiles } from "./data/bossFiles";
 
 interface MitigationOptions {
     [key: string]: PlayerMitigation[];
@@ -44,17 +45,18 @@ interface TimelineContextState {
     setPlayerMitigationOptions: React.Dispatch<React.SetStateAction<MitigationOptions>>;
     setSavedMitigations: React.Dispatch<React.SetStateAction<SavedMitigationsByJob>>;
 
-    setTotalSeconds: React.Dispatch<React.SetStateAction<number>>;
+    // setTotalSeconds: React.Dispatch<React.SetStateAction<number>>;
     setPixelsPerSecond: React.Dispatch<React.SetStateAction<number>>;
     setRowWidth: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const initialTime = "9:58";
-const totalSeconds = convertTimeStringToSeconds(initialTime);
+// const initialTime = "9:58";
+// const totalSeconds = convertTimeStringToSeconds(initialTime);
+const totalSeconds = 0;
 const pixelsPerSecond = 10;
 
 const initialValues = {
-    selectedBossFile: "p9s",
+    selectedBossFile: "p10s",
     playerMitigationOptions: {},
     savedMitigations: {},
     saveToLocalStorage: () => { },
@@ -75,7 +77,7 @@ const initialValues = {
     setPlayerMitigationOptions: () => { },
     setSavedMitigations: () => { },
 
-    setTotalSeconds: () => { },
+    // setTotalSeconds: () => { },
     setPixelsPerSecond: () => { },
     setRowWidth: () => { },
 };
@@ -100,6 +102,11 @@ export const TimelineProvider: FC<{ children: React.ReactNode }> = ({ children }
 
     useEffect(() => {
         readFromLocalStorage();
+    }, [selectedBossFile]);
+
+    useEffect(() => {
+        setTotalSeconds(convertTimeStringToSeconds(bossFiles[selectedBossFile]?.file.time));
+        setRowWidth(`${totalSeconds * pixelsPerSecond}px`);
     }, [selectedBossFile]);
 
     useEffect(() => {
@@ -160,7 +167,7 @@ export const TimelineProvider: FC<{ children: React.ReactNode }> = ({ children }
                 importToLocalStorage,
                 setSavedMitigations,
 
-                setTotalSeconds,
+                // setTotalSeconds,
                 setPixelsPerSecond,
                 setRowWidth,
             }}
