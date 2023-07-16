@@ -1,0 +1,210 @@
+{
+    "time": "10:39",
+    "attacks": [
+        {
+            "name": "Ultima",
+            "castTime": 5,
+            "time": "0:14"
+        },
+        {
+            "name": "Soul Grasp",
+            "castTime": 5,
+            "time": "0:24"
+        },
+        {
+            "name": "Dividing Wings/Steel Web",
+            "castTime": 0,
+            "time": "0:49"
+        },
+        {
+            "name": "Wicked Step",
+            "castTime": 6,
+            "time": "1:08"
+        },
+        {
+            "name": "Wicked Step",
+            "castTime": 0,
+            "time": "1:11"
+        },
+        {
+            "name": "Pandaemoniac Pillars",
+            "castTime": 0,
+            "time": "1:43"
+        },
+        {
+            "name": "Silkspit",
+            "castTime": 13,
+            "time": "1:58"
+        },
+        {
+            "name": "Pandaemoniac Meltdown",
+            "castTime": 5,
+            "time": "2:12"
+        },
+        {
+            "name": "Daemoniac Bonds",
+            "castTime": 0,
+            "time": "2:26"
+        },
+        {
+            "name": "Daemoniac Bonds",
+            "castTime": 0,
+            "time": "2:29"
+        },
+        {
+            "name": "Ultima",
+            "castTime": 5,
+            "time": "2:40"
+        },
+        {
+            "name": "Soul Grasp",
+            "castTime": 5,
+            "time": "2:49"
+        },
+        {
+            "name": "Peal of Condemnation",
+            "castTime": 0,
+            "time": "3:26"
+        },
+        {
+            "name": "Peal of Condemnation",
+            "castTime": 0,
+            "time": "3:30"
+        },
+        {
+            "name": "Peal of Condemnation",
+            "castTime": 0,
+            "time": "3:35"
+        },
+        {
+            "name": "Peal of Condemnation",
+            "castTime": 0,
+            "time": "3:39"
+        },
+        {
+            "name": "Daemoniac Bonds",
+            "castTime": 0,
+            "time": "3:44"
+        },
+        {
+            "name": "Daemoniac Bonds",
+            "castTime": 0,
+            "time": "3:47"
+        },
+        {
+            "name": "Ultima",
+            "castTime": 5,
+            "time": "4:09"
+        },
+        {
+            "name": "Soul Grasp",
+            "castTime": 0,
+            "time": "4:18"
+        },
+        {
+            "name": "Wicked Step",
+            "castTime": 6,
+            "time": "4:37"
+        },
+        {
+            "name": "Wicked Step",
+            "castTime": 0,
+            "time": "4:40"
+        },
+        {
+            "name": "Silkspit",
+            "castTime": 13,
+            "time": "5:08"
+        },
+        {
+            "name": "Daemoniac Bonds",
+            "castTime": 13,
+            "time": "5:29"
+        },
+        {
+            "name": "Daemoniac Bonds",
+            "castTime": 13,
+            "time": "5:33"
+        },
+        {
+            "name": "Dividing Wings/Steel Web",
+            "castTime": 0,
+            "time": "5:57"
+        },
+        {
+            "name": "Pandaemoniac Meltdown",
+            "castTime": 5,
+            "time": "6:15"
+        },
+        {
+            "name": "Soul Grasp",
+            "castTime": 5,
+            "time": "6:24"
+        },
+        {
+            "name": "Dividing Wings/Steel Web",
+            "castTime": 0,
+            "time": "6:58"
+        },
+        {
+            "name": "Harrowing Hell",
+            "castTime": 5,
+            "time": "7:17"
+        },
+        {
+            "name": "Daemoniac Bonds",
+            "castTime": 0,
+            "time": "7:38"
+        },
+        {
+            "name": "Daemoniac Bonds",
+            "castTime": 0,
+            "time": "7:41"
+        },
+        {
+            "name": "Ultima",
+            "castTime": 5,
+            "time": "8:00"
+        },
+        {
+            "name": "Soul Grasp",
+            "castTime": 5,
+            "time": "8:10"
+        },
+        {
+            "name": "Wicked Step",
+            "castTime": 6,
+            "time": "8:32"
+        },
+        {
+            "name": "Wicked Step",
+            "castTime": 0,
+            "time": "8:35"
+        },
+        {
+            "name": "Silkspit",
+            "castTime": 13,
+            "time": "9:38"
+        },
+        {
+            "name": "Pandaemoniac Pillars",
+            "castTime": 0,
+            "time": "9:52"
+        },
+        {
+            "name": "Pandaemoniac Meltdown",
+            "castTime": 5,
+            "time": "10:00"
+        },
+        {
+            "name": "Harrowing Hell",
+            "castTime": 5,
+            "time": "10:23"
+        },
+        {
+            "name": "Harrowing Hell",
+            "castTime": 0,
+            "time": "10:39"
+        }
+    ]
+}
