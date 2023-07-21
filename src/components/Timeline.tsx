@@ -9,7 +9,7 @@ export const Timeline = () => {
     const [jobs, setJobs] = useState<string[]>([]);
 
     useEffect(() => {
-        setJobs(Object.keys(context.savedMitigations));
+        setJobs(context.savedMitigations.mitigations.map((mits) => mits.job));
     }, [context.savedMitigations]);
 
     return (

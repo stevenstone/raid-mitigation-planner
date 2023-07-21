@@ -1,6 +1,6 @@
-import { PlayerMitigation } from "../utility/constants";
+import { MitigationOptions } from "../utility/constants";
 
-export const players: { [key: string]: PlayerMitigation[] } = {
+export const players: MitigationOptions = {
     "gnb": [
         {
             "name": "Aurora",

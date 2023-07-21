@@ -10,21 +10,10 @@
 
 // export type MitigationType = "magical" | "physical" | "all" | "none";
 
-export interface BossFile {
-    [key: string]: {
-        file: FightData,
-        displayName: string;
-    }
-}
-
-export interface PlayerMitigation {
+export interface BossAttacks {
     name: string;
-    duration: number;
-    cooldown: number;
-}
-
-export interface SavedMitigation extends PlayerMitigation {
-    time: number;
+    castTime: number;
+    time: string;
 }
 
 export interface FightData {
@@ -32,8 +21,37 @@ export interface FightData {
     time: string;
 }
 
-export interface BossAttacks {
-    name: string;
-    castTime: number;
-    time: string;
+export interface BossFile {
+    [key: string]: {
+        file: FightData,
+        displayName: string;
+    }
 }
+
+export interface Mitigation {
+    name: string;
+    duration: number;
+    cooldown: number;
+}
+
+export interface MitigationOptions {
+    [job: string]: Mitigation[],
+}
+
+export interface SavedMitigation extends Mitigation {
+    time: number;
+}
+
+export interface SinglePlayerMitigations {
+    job: string;
+    mitigations: SavedMitigation[];
+}
+
+export interface SingleFightMitigations {
+    fight: string;
+    mitigations: SinglePlayerMitigations[];
+}
+
+// export interface AllMitigations {
+//     fights: SingleFightMitigations[];
+// }

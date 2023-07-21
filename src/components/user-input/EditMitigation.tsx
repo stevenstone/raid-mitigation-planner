@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useMemo, useRef, useState } from "react";
 import { useContext } from "react";
-import { CurrentView, SavedMitigationsByJob, TimelineContext } from "../../TimelineContext"
-import { SavedMitigation } from "../../utility/constants";
+import { CurrentView, TimelineContext } from "../../TimelineContext"
+import { SavedMitigation, SingleFightMitigations, SinglePlayerMitigations } from "../../utility/constants";
 import { convertSecondsToTimeString, convertTimeStringToSeconds } from "../../utility/timeCalculations";
 import { Button } from "../Button";
 
@@ -10,12 +10,12 @@ const EditMitigation: FC = () => {
     const selectRef = useRef<HTMLSelectElement>(null);
     const timeRef = useRef<HTMLInputElement>(null);
 
-    const [[selectedJob, selectedMitIndex], setSelectedValues] = useState(context.selectedMitigation.split(":"));
-    const selectedMitigationValues = context.savedMitigations[selectedJob][selectedMitIndex] as SavedMitigation;
+    const [[selectedJobToEdit, selectedMitIndex], setSelectedValues] = useState(context.selectedMitigation.split(":"));
+    const selectedMitigationValues = context.savedMitigations[selectedJobToEdit][selectedMitIndex] as SavedMitigation;
 
     useEffect(() => {
         if (selectRef.current && timeRef.current) {
-            selectRef.current.value = `${selectedJob}:${selectedMitigationValues.name}`;
+            selectRef.current.value = `${selectedJobToEdit}:${selectedMitigationValues.name}`;
             timeRef.current.value = convertSecondsToTimeString(selectedMitigationValues.time);
         }
     }, [selectedMitigationValues]);
@@ -58,8 +58,8 @@ const EditMitigation: FC = () => {
     const deleteMit = () => {
         context.setCurrentView(CurrentView.Timeline);
         context.setSelectedMitigation("");
-        const updatedSavedMitigations: SavedMitigationsByJob = structuredClone(context.savedMitigations);
-        updatedSavedMitigations[selectedJob].splice(parseInt(selectedMitIndex, 10), 1);
+        const updatedSavedMitigations: SingleFightMitigations = structuredClone(context.savedMitigations);
+        updatedSavedMitigations.mitigations.find((mits) => mits.job === selectedJobToEdit)!.mitigations.splice(parseInt(selectedMitIndex, 10), 1);
         context.setSavedMitigations(updatedSavedMitigations);
     }
 
@@ -71,7 +71,7 @@ const EditMitigation: FC = () => {
         <>
             <h3>Edit Mitigation</h3>
             <label htmlFor="mitigation">Mitigation</label>
-            <select id="Mitigation" ref={selectRef as React.MutableRefObject<HTMLSelectElement>} defaultValue={`${selectedJob}:${selectedMitigationValues.name}`}>
+            <select id="Mitigation" ref={selectRef as React.MutableRefObject<HTMLSelectElement>} defaultValue={`${selectedJobToEdit}:${selectedMitigationValues.name}`}>
                 {mitOptions}
             </select>
             <label htmlFor="time">Time of Use</label>

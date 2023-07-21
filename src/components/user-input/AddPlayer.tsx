@@ -9,7 +9,9 @@ const AddPlayer: FC = () => {
     const selectRef = useRef<HTMLSelectElement>();
 
     const jobOptions = useMemo(() => {
-        const currentJobs = Array.from(Object.keys(context.savedMitigations));
+        // const currentJobs = Array.from(Object.keys(context.savedMitigations));
+        const currentJobs = context.savedMitigations.mitigations.map((mits) => mits.job);
+        console.log(currentJobs);
         return Object.keys(players)
             .filter((player) => !currentJobs.includes(player))
             .map((player) => {
@@ -21,7 +23,13 @@ const AddPlayer: FC = () => {
         const value = selectRef.current?.value;
         if (value) {
             const updatedSavedMitigations = structuredClone(context.savedMitigations);
-            updatedSavedMitigations[value] = [];
+            if (updatedSavedMitigations.mitigations.find((mit) => mit.job === value)) {
+                return;
+            }
+            updatedSavedMitigations.mitigations.push({
+                job: value,
+                mitigations: [],
+            });
             context.setSavedMitigations(updatedSavedMitigations);
         }
     }

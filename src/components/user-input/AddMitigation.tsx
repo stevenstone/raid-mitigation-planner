@@ -34,7 +34,9 @@ const AddMitigation: FC = () => {
                 ...context.playerMitigationOptions[job].find((mit) => mit.name === addedMit)!,
                 time: convertTimeStringToSeconds(time),
             };
-            updatedSavedMitigations[job].push(populatedMit);
+            // updatedSavedMitigations[job].push(populatedMit);
+            updatedSavedMitigations.mitigations.find((mits) => mits.job === job)?.mitigations.push(populatedMit);
+            console.log(updatedSavedMitigations);
             context.setSavedMitigations(updatedSavedMitigations);
         }
     }
