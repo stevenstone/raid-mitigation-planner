@@ -11,7 +11,8 @@ const EditMitigation: FC = () => {
     const timeRef = useRef<HTMLInputElement>(null);
 
     const [[selectedJobToEdit, selectedMitIndex], setSelectedValues] = useState(context.selectedMitigation.split(":"));
-    const selectedMitigationValues = context.savedMitigations[selectedJobToEdit][selectedMitIndex] as SavedMitigation;
+    // const selectedMitigationValues = context.savedMitigations[selectedJobToEdit][selectedMitIndex] as SavedMitigation;
+    const selectedMitigationValues = context.savedMitigations.mitigations.find((mit) => mit.job === selectedJobToEdit)!.mitigations[selectedMitIndex];
 
     useEffect(() => {
         if (selectRef.current && timeRef.current) {
@@ -44,11 +45,10 @@ const EditMitigation: FC = () => {
         if (value && time) {
             const updatedSavedMitigations = structuredClone(context.savedMitigations);
             const [job, addedMit] = value.split(":");
-            const populatedMit = {
-                ...context.playerMitigationOptions[job].find((mit) => mit.name === addedMit),
-                time: convertTimeStringToSeconds(time),
-            };
-            updatedSavedMitigations[job][selectedMitIndex] = populatedMit;
+
+            const updatedMit = updatedSavedMitigations.mitigations.find((mit) => mit.job === job)!.mitigations.find((mit) => mit.name = addedMit);
+            updatedMit!.time = convertTimeStringToSeconds(time);
+
             context.setSavedMitigations(updatedSavedMitigations);
             context.setCurrentView(CurrentView.Timeline);
             context.setSelectedMitigation("");

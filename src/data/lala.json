@@ -1,0 +1,100 @@
+{
+    "time": "5:00",
+    "attacks": [
+        {
+            "name": "Inferno Theorem",
+            "castTime": 0,
+            "time": "0:09"
+        },
+        {
+            "name": "Arcane Blight",
+            "castTime": 0,
+            "time": "0:24"
+        },
+        {
+            "name": "Analysis",
+            "castTime": 0,
+            "time": "0:32"
+        },
+        {
+            "name": "Targeted Light",
+            "castTime": 0,
+            "time": "0:59"
+        },
+        {
+            "name": "Strategic Strike",
+            "castTime": 0,
+            "time": "1:10"
+        },
+        {
+            "name": "Planar Tactics",
+            "castTime": 0,
+            "time": "1:23"
+        },
+        {
+            "name": "Inferno Theorem",
+            "castTime": 0,
+            "time": "1:50"
+        },
+        {
+            "name": "Strategic Strike",
+            "castTime": 0,
+            "time": "2:00"
+        },
+        {
+            "name": "Spacial Tactics",
+            "castTime": 0,
+            "time": "2:16"
+        },
+        {
+            "name": "Arcane Blight",
+            "castTime": 0,
+            "time": "2:43"
+        },
+        {
+            "name": "Inferno Theorem",
+            "castTime": 0,
+            "time": "2:52"
+        },
+        {
+            "name": "Inferno Theorem",
+            "castTime": 0,
+            "time": "3:03"
+        },
+        {
+            "name": "Symmetric Surge",
+            "castTime": 0,
+            "time": "3:15"
+        },
+        {
+            "name": "Arcane Point",
+            "castTime": 0,
+            "time": "3:39"
+        },
+        {
+            "name": "Explosive  Theorem",
+            "castTime": 0,
+            "time": "3:48"
+        },
+        {
+            "name": "Strategic Strike",
+            "castTime": 0,
+            "time": "4:06"
+        },
+        {
+            "name": "Inferno Theorem",
+            "castTime": 0,
+            "time": "4:15"
+        },
+        {
+            "name": "Analysis",
+            "castTime": 0,
+            "time": "4:27"
+        },
+        {
+            "name": "Targeted Light",
+            "castTime": 0,
+            "time": "4:48"
+        }
+    ]
+}

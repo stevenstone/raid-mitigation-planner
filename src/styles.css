@@ -12,7 +12,9 @@
   background: var(--background-color);
   display: inline-block;
   flex-wrap: nowrap;
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding-bottom: 2rem;
   width: 100%;
 }
 

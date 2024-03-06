@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useContext, useMemo } from "react";
 import { bossFiles } from "../../data/bossFiles";
 import { TimelineContext } from "../../TimelineContext";
-import { convertTimeStringToSeconds } from "../../utility/timeCalculations";
 
 export const BossDropdown = () => {
     const timelineContext = useContext(TimelineContext);

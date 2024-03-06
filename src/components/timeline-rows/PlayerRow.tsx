@@ -11,10 +11,11 @@ export const PlayerRow = (props: PlayerRowProps) => {
     const { pixelsPerSecond, rowHeight, rowWidth, savedMitigations, selectedMitigation, setCurrentView, setSelectedMitigation } = useContext(TimelineContext);
     const labelRef = useRef<HTMLDivElement>(null);
 
-    const numberOfMitTypes = (savedMitigations.mitigations.find((mits) => mits.job === props.job)!.mitigations.reduce((result, current) => {
+    const foundJob = savedMitigations.mitigations.find((mits) => mits.job === props.job)
+    const numberOfMitTypes = foundJob ? (foundJob.mitigations.reduce((result, current) => {
         result.add(current.name);
         return result;
-    }, new Set<string>())).size;
+    }, new Set<string>())).size : 1;
 
     useEffect(() => {
         const jobMits = savedMitigations.mitigations.find((job) => job.job === props.job)?.mitigations || [];

@@ -1,0 +1,115 @@
+{
+    "time": "5:38",
+    "attacks": [
+        {
+            "name": "Tidal Roar + Bleed",
+            "castTime": 4.7,
+            "time": "0:15"
+        },
+        {
+            "name": "Bubble Net",
+            "castTime": 3.8,
+            "time": "0:33"
+        },
+        {
+            "name": "Fluke Gale",
+            "castTime": 2.7,
+            "time": "0:50"
+        },
+        {
+            "name": "Hydrofall/Hydrobullet",
+            "castTime": 0,
+            "time": "1:03"
+        },
+        {
+            "name": "Blowing Bubbles",
+            "castTime": 3.9,
+            "time": "1:24"
+        },
+        {
+            "name": "Hydrofall/Hydrobullet",
+            "castTime": 0,
+            "time": "1:36"
+        },
+        {
+            "name": "Strewn Bubbles",
+            "castTime": 1.9,
+            "time": "1:59"
+        },
+        {
+            "name": "Hydrofall",
+            "castTime": 0,
+            "time": "2:13"
+        },
+        {
+            "name": "Bubble Net",
+            "castTime": 3.8,
+            "time": "2:45"
+        },
+        {
+            "name": "Hydrobullet",
+            "castTime": 0,
+            "time": "2:58"
+        },
+        {
+            "name": "Angry Seas",
+            "castTime": 3.9,
+            "time": "3:30"
+        },
+        {
+            "name": "Hydrofall/Hydrobullet",
+            "castTime": 0,
+            "time": "3:34"
+        },
+        {
+            "name": "Hydrofall/Hydrobullet",
+            "castTime": 0,
+            "time": "3:36"
+        },
+        {
+            "name": "Bubble Net",
+            "castTime": 3.8,
+            "time": "3:42"
+        },
+        {
+            "name": "Towers Resolve",
+            "castTime": 0,
+            "time": "3:58"
+        },
+        {
+            "name": "Bubble Net",
+            "castTime": 3.8,
+            "time": "4:15"
+        },
+        {
+            "name": "Fluke Gale",
+            "castTime": 2.7,
+            "time": "4:31"
+        },
+        {
+            "name": "Hydrofall/Hydrobullet",
+            "castTime": 0,
+            "time": "4:44"
+        },
+        {
+            "name": "Strewn Bubbles",
+            "castTime": 1.9,
+            "time": "5:00"
+        },
+        {
+            "name": "Hydrofall",
+            "castTime": 0,
+            "time": "5:14"
+        },
+        {
+            "name": "Tidal Roar + Bleed",
+            "castTime": 4.7,
+            "time": "5:26"
+        },
+        {
+            "name": "Tidal Roar (Death)",
+            "castTime": 0,
+            "time": "5:38"
+        }
+    ]
+}

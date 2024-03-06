@@ -49,7 +49,7 @@ interface TimelineContextState {
 // const totalSeconds = convertTimeStringToSeconds(initialTime);
 const totalSeconds = 0;
 const pixelsPerSecond = 10;
-const defaultBoss = "p10s";
+const defaultBoss = "ketuduke";
 
 const initialValues = {
     selectedBossFile: defaultBoss,

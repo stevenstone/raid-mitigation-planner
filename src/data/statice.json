@@ -1,0 +1,100 @@
+{
+    "time": "5:10",
+    "attacks": [
+        {
+            "name": "Aero IV",
+            "castTime": 0,
+            "time": "0:14"
+        },
+        {
+            "name": "Trapshooting",
+            "castTime": 0,
+            "time": "0:38"
+        },
+        {
+            "name": "Trigger Happy",
+            "castTime": 0,
+            "time": "0:49"
+        },
+        {
+            "name": "Bombs Appear",
+            "castTime": 0,
+            "time": "0:56"
+        },
+        {
+            "name": "Trapshooting",
+            "castTime": 0,
+            "time": "1:11"
+        },
+        {
+            "name": "Aero IV",
+            "castTime": 0,
+            "time": "0:14"
+        },
+        {
+            "name": "Bombs Appear",
+            "castTime": 0,
+            "time": "1:41"
+        },
+        {
+            "name": "Trapshooting",
+            "castTime": 0,
+            "time": "2:00"
+        },
+        {
+            "name": "Darts",
+            "castTime": 0,
+            "time": "2:04"
+        },
+        {
+            "name": "Trigger Happy",
+            "castTime": 0,
+            "time": "2:32"
+        },
+        {
+            "name": "Trapshooting",
+            "castTime": 0,
+            "time": "2:40"
+        },
+        {
+            "name": "Aero IV",
+            "castTime": 0,
+            "time": "2:52"
+        },
+        {
+            "name": "Aero IV",
+            "castTime": 0,
+            "time": "0:14"
+        },
+        {
+            "name": "Intermission",
+            "castTime": 0,
+            "time": "3:04"
+        },
+        {
+            "name": "Shocking Abandon",
+            "castTime": 0,
+            "time": "3:32"
+        },
+        {
+            "name": "Pinwheel Thing",
+            "castTime": 0,
+            "time": "3:50"
+        },
+        {
+            "name": "Aero IV",
+            "castTime": 0,
+            "time": "4:13"
+        },
+        {
+            "name": "Trapshooting",
+            "castTime": 0,
+            "time": "4:48"
+        },
+        {
+            "name": "Trigger Happy",
+            "castTime": 0,
+            "time": "5:05"
+        }
+    ]
+}

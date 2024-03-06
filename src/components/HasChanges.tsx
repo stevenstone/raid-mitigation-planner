@@ -4,7 +4,13 @@ import { TimelineContext } from "../TimelineContext";
 
 const HasChanges = () => {
     const timelineContext = useContext(TimelineContext);
-    if (JSON.stringify(JSON.parse(timelineContext.lastSavedToStorage || "{}")[timelineContext.selectedBossFile] || {}) === JSON.stringify(timelineContext.savedMitigations)) {
+    console.log(
+        // !!timelineContext.lastSavedToStorage,
+        timelineContext.lastSavedToStorage,
+        // JSON.parse(timelineContext.lastSavedToStorage).find((x) => x.fight === timelineContext.selectedBossFile),
+        // JSON.stringify(timelineContext.savedMitigations)
+    );
+    if (!!timelineContext.lastSavedToStorage && timelineContext.lastSavedToStorage[timelineContext.selectedBossFile] === JSON.stringify(timelineContext.savedMitigations)) {
         return <span>Saved and/or up to date!</span>;
     }
 

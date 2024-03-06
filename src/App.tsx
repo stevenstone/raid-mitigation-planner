@@ -9,7 +9,7 @@ export const App = () => {
     return (
         <TimelineProvider>
             <BossDropdown />
-            <HasChanges />
+            {/* <HasChanges /> */}
             <Timeline />
             <ActionMenu />
         </TimelineProvider>
